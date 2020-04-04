@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Flat
+from .models import Flat, Report_flat
 
 class FlatAdmin(admin.ModelAdmin):
     search_fields = ('town', 'address', 'owner')
@@ -18,7 +18,18 @@ class FlatAdmin(admin.ModelAdmin):
                     'construction_year',
                     'town'
                     ]
+    
+
+
+class Report_flatAdmin(admin.ModelAdmin):
+    list_display = (
+                    'user',
+                    'flat',
+                    'report_text'
+                    )
+    raw_id_fields = [
+                    'flat'
+                    ]
 
 admin.site.register(Flat, FlatAdmin)
-
-
+admin.site.register(Report_flat, Report_flatAdmin)
