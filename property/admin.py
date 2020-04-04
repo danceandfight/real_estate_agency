@@ -18,7 +18,10 @@ class FlatAdmin(admin.ModelAdmin):
                     'construction_year',
                     'town'
                     ]
-    
+    raw_id_fields = [
+                    'liked_by'
+                    ]
+
 
 
 class Report_flatAdmin(admin.ModelAdmin):
