@@ -22,7 +22,7 @@ class FlatAdmin(admin.ModelAdmin):
     raw_id_fields = [
                     'liked_by'
                     ]
-
+    
 
 class Report_flatAdmin(admin.ModelAdmin):
     list_display = (
