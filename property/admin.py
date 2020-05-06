@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Flat, Report_flat, Owner
+from .models import Flat, FlatReport, Owner
 
 class OwnerInline(admin.TabularInline):
     model = Flat.flats_owned_by.through
@@ -56,9 +56,9 @@ class FlatAdmin(admin.ModelAdmin):
                     ]
     inlines = [OwnerInline, ]
 
-class Report_flatAdmin(admin.ModelAdmin):
+class FlatReportAdmin(admin.ModelAdmin):
     list_display = (
-                    'user',
+                    'reported_user',
                     'flat',
                     'report_text'
                     )
@@ -72,5 +72,5 @@ class OwnerAdmin(admin.ModelAdmin):
                     ]
 
 admin.site.register(Flat, FlatAdmin)
-admin.site.register(Report_flat, Report_flatAdmin)
+admin.site.register(FlatReport, FlatReportAdmin)
 admin.site.register(Owner, OwnerAdmin)
