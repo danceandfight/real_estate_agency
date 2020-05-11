@@ -6,7 +6,9 @@ def parse_flats_to_owners(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all():
-        this_flat_owner = Owner.objects.get(owner=flat.owner)
+        this_flat_owner, create = Owner.objects.get_or_create(owner=flat.owner, pure_phone_number=flat.pure_phone_number, defaults={
+            'owners_phonenumber': flat.owners_phonenumber,
+            })
         this_flat_owner.flats_owned.add(flat.id) 
 
 class Migration(migrations.Migration):
