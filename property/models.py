@@ -42,7 +42,7 @@ class FlatReport(models.Model):
     reported_user = models.ForeignKey(
                             User, 
                             verbose_name="Кто жаловался",
-                            related_name="reported_flats",
+                            related_name="flat_reports",
                             on_delete=models.SET_NULL, 
                             null=True, 
                             blank=True
