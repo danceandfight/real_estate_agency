@@ -8,7 +8,7 @@ def parse_phonenumbers(apps, schema_editor):
         phonenumber = flat.owners_phonenumber
         normalized_phonenumber = phonenumbers.parse(phonenumber, "RU")
         if not phonenumbers.is_valid_number(normalized_phonenumber):
-            return None
+            continue
         flat.pure_phone_number = phonenumbers.format_number(
             normalized_phonenumber, 
             phonenumbers.PhoneNumberFormat.INTERNATIONAL
